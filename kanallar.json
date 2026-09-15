@@ -1,0 +1,1259 @@
+{
+    "surum":  6,
+    "guncelleme":  "2026-09-15",
+    "not":  "Sadece yayincinin kendi resmi CDN\u0027inden gelen ucretsiz yayinlar. DRM\u0027li veya korsan kaynak yok.",
+    "dogrulama":  "13 Eylul 2026: 148 kanalin tamami tarandi (master + en yuksek varyant playlist gecikmesi x3). 144 kanal calisiyor, 140\u0027inin en kotu playlist suresi 500 ms altinda. Olu 4 kanal cikarildi. 7 kanal tokenli: 6 Turkuvaz kanali securevideotoken.tmgrup.com.tr uzerinden, NOW TV kendi sayfasindan imzali adres aliyor - bunlar ISP\u0027ye ozel turknet.ercdn.net dugumunden alindi, o dugum yuksek varyantlarin playlist\u0027ini 4-16 sn geciktiriyordu. 10 Eylul: her kanal icin master -\u003e en dusuk varyant -\u003e son segment gercekten indirildi.",
+    "alanlar":  "maxKalite: kanalin sundugu en yuksek cozunurluk. minKalite: varsa, bu kanalda bunun altindaki varyantlar bozuk - oynatici alt siniri buraya cekmeli. tokenli: adres kisa omurlu token tasir, oynatma aninda tokenSayfa\u0027dan tazelenmeli.",
+    "kanallar":  [
+                     {
+                         "id":  "trt1",
+                         "ad":  "TRT 1",
+                         "grup":  "Ulusal",
+                         "maxKalite":  "1440p",
+                         "url":  "https://trt.daioncdn.net/trt-1/master.m3u8?app=clean",
+                         "referer":  "https://www.trtizle.com/",
+                         "not":  "medya.trt.com.tr 14400 segmentlik (986 KB) playlist veriyordu, acilis cok yavasti; daioncdn 8 segment / 758 B veriyor."
+                     },
+                     {
+                         "id":  "atv",
+                         "ad":  "ATV",
+                         "grup":  "Ulusal",
+                         "maxKalite":  "1080p",
+                         "url":  "https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/atv/atv.m3u8",
+                         "referer":  "https://www.atv.com.tr/",
+                         "tokenli":  true,
+                         "tokenSayfa":  "https://securevideotoken.tmgrup.com.tr/webtv/secure?url=https%3A%2F%2Ftrkvz.daioncdn.net%2Fatv%2Fatv.m3u8%3Fce%3D3%26app%3Dweb",
+                         "tokenDesen":  "https://trkvz\\.daioncdn\\.net/atv/atv\\.m3u8[^\"]+",
+                         "not":  "13 Eylul 2026: turknet ISP dugumunden Turkuvaz\u0027in kendi daioncdn kaynagina gecildi. Olculen kazanc: 1080p playlist eski dugumde ort 3462 ms / en kotu 9638 ms, yeni kaynakta ort 65 ms / en kotu 124 ms. url alani, token servisi cokerse diye eski (yavas ama calisan) dugum olarak birakildi."
+                     },
+                     {
+                         "id":  "showtv",
+                         "ad":  "Show TV",
+                         "grup":  "Ulusal",
+                         "maxKalite":  "1080p",
+                         "url":  "https://ciner.daioncdn.net/showtv/showtv.m3u8?ce=3\u0026app=4bc856ef-4c68-4a94-bc87-37dfaaa66558",
+                         "referer":  "https://www.showtv.com.tr/"
+                     },
+                     {
+                         "id":  "kanald",
+                         "ad":  "Kanal D",
+                         "grup":  "Ulusal",
+                         "maxKalite":  "1080p",
+                         "url":  "https://demiroren.daioncdn.net/kanald/kanald.m3u8?app=kanald_web\u0026ce=3",
+                         "referer":  "https://www.kanald.com.tr/"
+                     },
+                     {
+                         "id":  "tv8",
+                         "ad":  "TV8",
+                         "grup":  "Ulusal",
+                         "maxKalite":  "1080p",
+                         "url":  "https://tv8.daioncdn.net/tv8/tv8.m3u8?app=7ddc255a-ef47-4e81-ab14-c0e5f2949788\u0026ce=3",
+                         "referer":  "https://www.tv8.com.tr/"
+                     },
+                     {
+                         "id":  "startv",
+                         "ad":  "Star TV",
+                         "grup":  "Ulusal",
+                         "maxKalite":  "720p",
+                         "url":  "https://dogus.daioncdn.net/startv/startv.m3u8?ce=3\u0026app=a20ac41e-bdc3-4aa1-934d-26b484480ac9",
+                         "referer":  "https://www.startv.com.tr/"
+                     },
+                     {
+                         "id":  "nowtv",
+                         "ad":  "NOW TV",
+                         "grup":  "Ulusal",
+                         "maxKalite":  "720p",
+                         "url":  "https://uycyyuuzyh.turknet.ercdn.net/nphindgytw/nowtv/nowtv.m3u8",
+                         "referer":  "https://www.nowtv.com.tr/",
+                         "tokenli":  true,
+                         "tokenSayfa":  "https://www.nowtv.com.tr/canli-yayin",
+                         "tokenDesen":  "https://nowtv\\.daioncdn\\.net/nowtv/nowtv\\.m3u8\\?[A-Za-z0-9=&_.\\-]+",
+                         "not":  "13 Eylul 2026: turknet ISP dugumu 720p playlist\u0027ini ort 15,9 sn geciktiriyordu (bir istek hic donmedi), oynatici 720p\u0027yi tutamayip 360p\u0027de kaliyordu - goruntu bulanik goruluyordu. Yayincinin kendi sayfasindaki imzali daion adresine gecildi: ayni merdiven, 69 ms. Yayincinin tavani zaten 720p @ 1050 kbps; daha yuksek profil YOK (nowtvhd, ercdn tenant\u0027lari, app/ce varyasyonlari, mobil+AndroidTV UA denendi - hepsi 403/404)."
+                     },
+                     {
+                         "id":  "teve2",
+                         "ad":  "teve2",
+                         "grup":  "Ulusal",
+                         "maxKalite":  "1080p",
+                         "url":  "https://demiroren.daioncdn.net/teve2/teve2.m3u8?ce=3\u0026app=6aab838a-437e-4a1b-bbd0-e30f79cdbbbd",
+                         "referer":  "https://www.teve2.com.tr/"
+                     },
+                     {
+                         "id":  "kanal7",
+                         "ad":  "Kanal 7",
+                         "grup":  "Ulusal",
+                         "maxKalite":  "1080p",
+                         "url":  "https://kanal7.daioncdn.net/kanal7/kanal7.m3u8?app=f99587ad-1637-494d-8255-da35b09d17a1\u0026ce=3",
+                         "referer":  "https://www.kanal7.com/"
+                     },
+                     {
+                         "id":  "tv360",
+                         "ad":  "360",
+                         "grup":  "Ulusal",
+                         "maxKalite":  "1080p",
+                         "url":  "https://turkmedya-live.ercdn.net/tv360/tv360.m3u8",
+                         "referer":  "https://www.360tv.com.tr/"
+                     },
+                     {
+                         "id":  "tv4",
+                         "ad":  "TV4",
+                         "grup":  "Ulusal",
+                         "maxKalite":  "1080p",
+                         "url":  "https://turkmedya-live.ercdn.net/tv4/tv4.m3u8",
+                         "referer":  "https://www.tv4.com.tr/"
+                     },
+                     {
+                         "id":  "a2",
+                         "ad":  "A2",
+                         "grup":  "Ulusal",
+                         "maxKalite":  "1080p",
+                         "url":  "https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/a2tv/a2tv.m3u8",
+                         "referer":  "https://www.atv.com.tr/",
+                         "tokenli":  true,
+                         "tokenSayfa":  "https://securevideotoken.tmgrup.com.tr/webtv/secure?url=https%3A%2F%2Ftrkvz.daioncdn.net%2Fa2tv%2Fa2tv.m3u8%3Fce%3D3%26app%3D59363a60-be96-4f73-9eff-355d0ff2c758",
+                         "tokenDesen":  "https://trkvz\\.daioncdn\\.net/a2tv/a2tv\\.m3u8[^\"]+"
+                     },
+                     {
+                         "id":  "tv85",
+                         "ad":  "TV8,5",
+                         "grup":  "Ulusal",
+                         "maxKalite":  "1080p",
+                         "url":  "https://tv8.daioncdn.net/tv8bucuk/tv8bucuk.m3u8?app=tv8bucuk_web\u0026ce=3",
+                         "referer":  "https://www.tv8bucuk.com/"
+                     },
+                     {
+                         "id":  "trt2",
+                         "ad":  "TRT 2",
+                         "grup":  "Ulusal",
+                         "maxKalite":  "1440p",
+                         "url":  "https://tv-trt2.medya.trt.com.tr/master.m3u8",
+                         "referer":  "https://www.trtizle.com/"
+                     },
+                     {
+                         "id":  "eurod",
+                         "ad":  "Euro D",
+                         "grup":  "Ulusal",
+                         "maxKalite":  "540p",
+                         "url":  "https://live.duhnet.tv/S2/HLS_LIVE/eurodnp/playlist.m3u8",
+                         "referer":  "https://www.eurod.tv/"
+                     },
+                     {
+                         "id":  "trthaber",
+                         "ad":  "TRT Haber",
+                         "grup":  "Haber",
+                         "maxKalite":  "1440p",
+                         "url":  "https://tv-trthaber.medya.trt.com.tr/master.m3u8",
+                         "referer":  "https://www.trthaber.com/"
+                     },
+                     {
+                         "id":  "ntv",
+                         "ad":  "NTV",
+                         "grup":  "Haber",
+                         "maxKalite":  "1080p",
+                         "url":  "https://dogus.daioncdn.net/ntv/ntv.m3u8?app=ntv_web",
+                         "referer":  "https://www.ntv.com.tr/"
+                     },
+                     {
+                         "id":  "haberturk",
+                         "ad":  "Habertürk",
+                         "grup":  "Haber",
+                         "maxKalite":  "1080p",
+                         "url":  "https://ciner.daioncdn.net/haberturktv/haberturktv.m3u8?app=c98ab0b0-50cc-495b-bb37-778e91f5ff5b\u0026ce=3",
+                         "referer":  "https://www.haberturk.com/"
+                     },
+                     {
+                         "id":  "ahaber",
+                         "ad":  "A Haber",
+                         "grup":  "Haber",
+                         "maxKalite":  "1080p",
+                         "url":  "https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/ahaber/ahaber.m3u8",
+                         "referer":  "https://www.ahaber.com.tr/",
+                         "tokenli":  true,
+                         "tokenSayfa":  "https://securevideotoken.tmgrup.com.tr/webtv/secure?url=https%3A%2F%2Ftrkvz.daioncdn.net%2Fahaber%2Fahaber.m3u8%3Fapp%3Dweb",
+                         "tokenDesen":  "https://trkvz\\.daioncdn\\.net/ahaber/ahaber\\.m3u8[^\"]+"
+                     },
+                     {
+                         "id":  "halktv",
+                         "ad":  "Halk TV",
+                         "grup":  "Haber",
+                         "maxKalite":  "1080p",
+                         "url":  "https://halktv-live.daioncdn.net/halktv/halktv.m3u8",
+                         "referer":  "https://halktv.com.tr/"
+                     },
+                     {
+                         "id":  "tv24",
+                         "ad":  "24",
+                         "grup":  "Haber",
+                         "maxKalite":  "1080p",
+                         "url":  "https://turkmedya-live.ercdn.net/tv24/tv24.m3u8",
+                         "referer":  "https://www.24tv.com.tr/"
+                     },
+                     {
+                         "id":  "tvnet",
+                         "ad":  "TVNET",
+                         "grup":  "Haber",
+                         "maxKalite":  "1080p",
+                         "url":  "https://tvnet-live.lg.mncdn.com/tvnet/tvnet/playlist.m3u8",
+                         "referer":  "https://www.tvnet.com.tr/"
+                     },
+                     {
+                         "id":  "gzt",
+                         "ad":  "GZT",
+                         "grup":  "Haber",
+                         "maxKalite":  "1080p",
+                         "url":  "https://gzttv-live.lg.mncdn.com/gzttv/gzttv/playlist.m3u8",
+                         "referer":  "https://www.gzt.com/"
+                     },
+                     {
+                         "id":  "trtworld",
+                         "ad":  "TRT World",
+                         "grup":  "Haber",
+                         "maxKalite":  "1440p",
+                         "url":  "https://tv-trtworld.medya.trt.com.tr/master.m3u8",
+                         "referer":  "https://www.trtworld.com/"
+                     },
+                     {
+                         "id":  "tgrthaber",
+                         "ad":  "TGRT Haber",
+                         "grup":  "Haber",
+                         "maxKalite":  "720p",
+                         "url":  "https://canli.tgrthaber.com/tgrt.m3u8",
+                         "referer":  "https://www.tgrthaber.com/"
+                     },
+                     {
+                         "id":  "bloomberght",
+                         "ad":  "Bloomberg HT",
+                         "grup":  "Haber",
+                         "maxKalite":  "720p",
+                         "url":  "https://ciner.daioncdn.net/bloomberght/bloomberght.m3u8?app=201b9556-b11c-4d92-b264-f21fd24e9aaf\u0026ce=3",
+                         "referer":  "https://www.bloomberght.com/"
+                     },
+                     {
+                         "id":  "ekoturk",
+                         "ad":  "Ekotürk",
+                         "grup":  "Haber",
+                         "maxKalite":  "720p",
+                         "url":  "https://cdn.ekoturk.net/hls/master.m3u8",
+                         "referer":  "https://www.ekoturk.com/"
+                     },
+                     {
+                         "id":  "cnbce",
+                         "ad":  "CNBC-e",
+                         "grup":  "Haber",
+                         "maxKalite":  "1080p",
+                         "url":  "https://hnpsechtsc.turknet.ercdn.net/xpnvudnlsv/cnbc-e/cnbc-e.m3u8",
+                         "referer":  "https://www.cnbce.com/"
+                     },
+                     {
+                         "id":  "tbmmtv",
+                         "ad":  "TBMM TV",
+                         "grup":  "Haber",
+                         "maxKalite":  "720p",
+                         "url":  "https://meclistv-live.ercdn.net/meclistv/meclistv.m3u8",
+                         "referer":  "https://www.tbmm.gov.tr/"
+                     },
+                     {
+                         "id":  "cnnturk",
+                         "ad":  "CNN T\u00fcrk",
+                         "grup":  "Haber",
+                         "maxKalite":  "720p",
+                         "url":  "http://46.32.176.50/cnnturk/playlist.m3u8",
+                         "referer":  "",
+                         "not":  "13 Eylul 2026: UCUNCU SAHIS kaynagi (kullanici \u0027kurallari esnet\u0027 dedi). iptv-org issue #41007\u0027de onerilen Flussonic sunucusu, http. Dogrulandi: 720p 2 Mbps, tur+eng ses, MEDIA-SEQUENCE 20 sn\u0027de 3 ilerledi, segment adindaki tarih o ani gosteriyordu; ffmpeg ile alinan karede CNN Turk logosu ve saat dogru. Yayincinin kendi live.duhnet.tv adresi disaridan 403. KIRILGAN: sahibi belirsiz bir IP."
+                     },
+                     {
+                         "id":  "sozcutv",
+                         "youtube":  "ztmY_cCtUl0",
+                         "ad":  "S\u00f6zc\u00fc TV",
+                         "grup":  "Haber",
+                         "maxKalite":  "1080p",
+                         "url":  "https://cdn509.ecanlitvizle.live/sozcutv.m3u8?tkn=DQorRNHf0zLDNc534IDRfA\u0026tms=1789338807\u0026hst=www.ecanlitvizle.live\u0026ip=95.70.227.41\u0026utkn=18e0874d0149e0dd8bcaf38d75a6c1b1\u0026ch=sozcu-tv-canli-izle",
+                         "referer":  "https://www.ecanlitvizle.live/sozcu-tv-canli-izle/",
+                         "tokenli":  true,
+                         "tokenSayfa":  "https://www.ecanlitvizle.live/embed.php?kanal=sozcu-tv-canli-izle\u0026ulke=TR",
+                         "tokenDesen":  "file\\s*:\\s*\u0027([^\u0027]+)\u0027",
+                         "not":  "13 Eylul 2026: UCUNCU SAHIS cevirimi (ecanlitvizle.live). Yayinci sadece YouTube\u0027da. embed.php icindeki jwplayer file adresi harf degistirmeyle karistirilmis; TokenCozucu.ecanliCoz cozer. Token ~4 saat ve cikis IP\u0027sine bagli, Referer gerekmiyor. Dogrulandi: SD 720x576 + ses, MEDIA-SEQUENCE 20 sn\u0027de 4 ilerledi, karede SZC logosu ve dogru saat. KIRILGAN: site bozulursa embed.php\u0027deki JS\u0027e bak."
+                     },
+                     {
+                         "id":  "trtspor",
+                         "ad":  "TRT Spor",
+                         "grup":  "Spor",
+                         "maxKalite":  "1440p",
+                         "url":  "https://tv-trtspor-dash.medya.trt.com.tr/master.mpd",
+                         "referer":  "https://www.trtizle.com/",
+                         "not":  "HLS playlist\u0027i 14.400 segment (878 KB) idi; DASH manifest 2,6 KB. Sifrelenmemis."
+                     },
+                     {
+                         "id":  "trtsporyildiz",
+                         "ad":  "TRT Spor Yıldız",
+                         "grup":  "Spor",
+                         "maxKalite":  "1440p",
+                         "url":  "https://tv-trtspor2.medya.trt.com.tr/master.m3u8",
+                         "referer":  "https://www.trtizle.com/"
+                     },
+                     {
+                         "id":  "aspor",
+                         "ad":  "A Spor",
+                         "grup":  "Spor",
+                         "maxKalite":  "1080p",
+                         "url":  "https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/aspor/aspor.m3u8",
+                         "referer":  "https://www.aspor.com.tr/",
+                         "tokenli":  true,
+                         "tokenSayfa":  "https://securevideotoken.tmgrup.com.tr/webtv/secure?url=https%3A%2F%2Ftrkvz.daioncdn.net%2Faspor%2Faspor.m3u8%3Fce%3D3%26app%3D45f847c4-04e8-419a-a561-2ebf87084765",
+                         "tokenDesen":  "https://trkvz\\.daioncdn\\.net/aspor/aspor\\.m3u8[^\"]+"
+                     },
+                     {
+                         "id":  "tjktv",
+                         "ad":  "TJK TV",
+                         "grup":  "Spor",
+                         "maxKalite":  "1080p",
+                         "url":  "https://tjktv-live.tjk.org/tjktv.m3u8",
+                         "referer":  "https://www.tjk.org/"
+                     },
+                     {
+                         "id":  "trtcocuk",
+                         "ad":  "TRT Çocuk",
+                         "grup":  "Çocuk",
+                         "maxKalite":  "1440p",
+                         "url":  "https://tv-trtcocuk.medya.trt.com.tr/master.m3u8",
+                         "referer":  "https://www.trtcocuk.net.tr/"
+                     },
+                     {
+                         "id":  "trtdiyanetcocuk",
+                         "ad":  "TRT Diyanet Çocuk",
+                         "grup":  "Çocuk",
+                         "maxKalite":  "1440p",
+                         "url":  "https://tv-trtdiyanetcocuk.medya.trt.com.tr/master.m3u8",
+                         "referer":  "https://www.trtcocuk.net.tr/"
+                     },
+                     {
+                         "id":  "minikago",
+                         "ad":  "Minika Go",
+                         "grup":  "Çocuk",
+                         "maxKalite":  "720p",
+                         "url":  "https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/minikago/minikago.m3u8",
+                         "referer":  "https://www.minikago.com.tr/",
+                         "tokenli":  true,
+                         "tokenSayfa":  "https://securevideotoken.tmgrup.com.tr/webtv/secure?url=https%3A%2F%2Ftrkvz.daioncdn.net%2Fminikago%2Fminikago.m3u8%3Fapp%3Dweb%26ce%3D3",
+                         "tokenDesen":  "https://trkvz\\.daioncdn\\.net/minikago/minikago\\.m3u8[^\"]+"
+                     },
+                     {
+                         "id":  "minikacocuk",
+                         "ad":  "Minika Çocuk",
+                         "grup":  "Çocuk",
+                         "maxKalite":  "720p",
+                         "url":  "https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/minikago_cocuk/minikago_cocuk.m3u8",
+                         "referer":  "https://www.minikacocuk.com.tr/",
+                         "tokenli":  true,
+                         "tokenSayfa":  "https://securevideotoken.tmgrup.com.tr/webtv/secure?url=https%3A%2F%2Ftrkvz.daioncdn.net%2Fminikago_cocuk%2Fminikago_cocuk.m3u8%3Fapp%3Dweb%26ce%3D3",
+                         "tokenDesen":  "https://trkvz\\.daioncdn\\.net/minikago_cocuk/minikago_cocuk\\.m3u8[^\"]+"
+                     },
+                     {
+                         "id":  "cartoonnetwork",
+                         "ad":  "Cartoon Network",
+                         "grup":  "\u00c7ocuk",
+                         "maxKalite":  "1080p",
+                         "url":  "https://yayin2.canlitv.fun/live/cartoon-network.stream/playlist.m3u8?hash=8f20b24a4fa81fed7bdf03c1f23242cb",
+                         "referer":  "https://www.canlitv.diy/",
+                         "not":  "13 Eylul 2026 - UCUNCU SAHIS CEVIRIMI (kullanici karari, bkz. CLAUDE.md kural 1 istisnasi). CN Turkiye uydudan sifresiz yayinlaniyor ama yayincinin internet akisi YOK: cartoonnetwork.com.tr artik WBD kurumsal sayfasi, iptv-org\u0027da CartoonNetwork.tr kanalinin tek akisi yok. Bu adres canlitv.com\u0027un kendi cevirim sunucusu; adresi oynatici sayfasindan cikti (canlitv.diy/player/index.php?id=11233). hash SABIT, gomulu adres yeterli. Dogrulandi: tek varyant 1080p 1,1 Mbps, MEDIA-SEQUENCE 30 sn\u0027de 3 ilerledi, son segment 1339 KB indi, Referer bile gerekmiyor. KIRILGAN: ucuncu sahis kaynagi, olebilir; olurse canlitv.diy/cartoon-network sayfasindaki oynatici adresine tekrar bak."
+                     },
+                     {
+                         "id":  "trtbelgesel",
+                         "ad":  "TRT Belgesel",
+                         "grup":  "Belgesel",
+                         "maxKalite":  "1440p",
+                         "url":  "https://tv-trtbelgesel-dash.medya.trt.com.tr/master.mpd",
+                         "referer":  "https://www.trtbelgesel.com.tr/",
+                         "not":  "HLS playlist\u0027i 14.400 segment (662 KB) idi; DASH manifest 2,6 KB. Sifrelenmemis."
+                     },
+                     {
+                         "id":  "trtmuzik",
+                         "ad":  "TRT Müzik",
+                         "grup":  "Müzik",
+                         "maxKalite":  "1440p",
+                         "url":  "https://tv-trtmuzik.medya.trt.com.tr/master.m3u8",
+                         "referer":  "https://www.trtmuzik.net.tr/"
+                     },
+                     {
+                         "id":  "powerturk",
+                         "ad":  "PowerTürk TV",
+                         "grup":  "Müzik",
+                         "maxKalite":  "1080p",
+                         "url":  "https://live.artidijitalmedya.com/artidijital_powerturktv/powerturktv/playlist.m3u8",
+                         "referer":  "https://www.powerturk.com.tr/"
+                     },
+                     {
+                         "id":  "powertv",
+                         "ad":  "Power TV",
+                         "grup":  "Müzik",
+                         "maxKalite":  "1080p",
+                         "url":  "https://livetv.powerapp.com.tr/powerTV/powerhd.smil/playlist.m3u8",
+                         "referer":  "https://www.powerapp.com.tr/"
+                     },
+                     {
+                         "id":  "kralpop",
+                         "ad":  "Kral Pop TV",
+                         "grup":  "Müzik",
+                         "maxKalite":  "720p",
+                         "url":  "https://dogus.daioncdn.net/kralpoptv/kralpoptv.m3u8?app=f38a38b4-ce55-4040-8676-9826937d6128",
+                         "referer":  "https://www.kralmuzik.com.tr/"
+                     },
+                     {
+                         "id":  "dreamturk",
+                         "ad":  "Dream Türk",
+                         "grup":  "Müzik",
+                         "maxKalite":  "720p",
+                         "url":  "https://live.duhnet.tv/S2/HLS_LIVE/dreamturknp/playlist.m3u8",
+                         "referer":  "https://www.dreamturk.com.tr/"
+                     },
+                     {
+                         "id":  "showturk",
+                         "ad":  "Show Türk",
+                         "grup":  "Müzik",
+                         "maxKalite":  "1080p",
+                         "url":  "https://ciner-live.ercdn.net/showturk/playlist.m3u8?e=1789330212\u0026st=mX6VGkRBer8z_VxUnZgi6Q\u0026tv=1",
+                         "referer":  "https://www.showturk.com.tr/",
+                         "tokenli":  true,
+                         "tokenSayfa":  "https://www.showturk.com.tr/canli-yayin",
+                         "tokenDesen":  "https://ciner-live\\.ercdn\\.net/showturk/playlist\\.m3u8\\?[A-Za-z0-9=\u0026_.\\-]+",
+                         "not":  "13 Eylul 2026: yayin yeniden CANLI (10 Eylul'de donmustu). MEDIA-SEQUENCE 25 sn'de 2 ilerledi, son segment 9 sn eski. 360p/720p/1080p uc varyantin da ilk ve son segmenti indi (10 Eylul'deki 360p 404 arizasi gecmis, minKalite gerekmiyor). 1080p playlist 57 ms. Token ~2 saat gecerli, sayfa her istekte yeni token veriyor; gomulu url yedek olarak kaldi ama suresi dolmus olacak. ciner.daioncdn.net/showturk 404."
+                     },
+                     {
+                         "id":  "number1tv",
+                         "ad":  "Number 1 TV",
+                         "grup":  "M\u00fczik",
+                         "url":  "https://b01c02nl.mediatriple.net/videoonlylive/mtkgeuihrlfwlive/broadcast_5c9e17cd59e8b.smil/playlist.m3u8",
+                         "referer":  "",
+                         "not":  "13 Eylul 2026: yeniden canli (10 Eylul\u0027de segmentleri 404 idi). Tek varyant 400 kbps; MEDIA-SEQUENCE 20 sn\u0027de 4 ilerledi, segmentte video+ses PID\u0027i var."
+                     },
+                     {
+                         "id":  "number1ask",
+                         "ad":  "Number 1 A\u015fk",
+                         "grup":  "M\u00fczik",
+                         "maxKalite":  "720p",
+                         "url":  "https://b01c02nl.mediatriple.net/videoonlylive/mtkgeuihrlfwlive/u_stream_5c9e18f9cea15_1/playlist.m3u8",
+                         "referer":  "",
+                         "not":  "13 Eylul 2026: iptv-org. 720p 1,2 Mbps, video+ses, MEDIA-SEQUENCE ilerliyor."
+                     },
+                     {
+                         "id":  "number1damar",
+                         "ad":  "Number 1 Damar",
+                         "grup":  "M\u00fczik",
+                         "maxKalite":  "720p",
+                         "url":  "https://b01c02nl.mediatriple.net/videoonlylive/mtkgeuihrlfwlive/u_stream_5c9e198784bdc_1/playlist.m3u8",
+                         "referer":  "",
+                         "not":  "13 Eylul 2026: iptv-org. 720p 1,2 Mbps, video+ses, MEDIA-SEQUENCE ilerliyor."
+                     },
+                     {
+                         "id":  "number1dance",
+                         "ad":  "Number 1 Dance",
+                         "grup":  "M\u00fczik",
+                         "maxKalite":  "720p",
+                         "url":  "https://b01c02nl.mediatriple.net/videoonlylive/mtkgeuihrlfwlive/u_stream_5c9e2aa8acf44_1/playlist.m3u8",
+                         "referer":  "",
+                         "not":  "13 Eylul 2026: iptv-org. 720p 3,3 Mbps, video+ses, MEDIA-SEQUENCE ilerliyor."
+                     },
+                     {
+                         "id":  "trtavaz",
+                         "ad":  "TRT Avaz",
+                         "grup":  "Diğer",
+                         "maxKalite":  "1440p",
+                         "url":  "https://tv-trtavaz.medya.trt.com.tr/master.m3u8",
+                         "referer":  "https://www.trtavaz.com.tr/"
+                     },
+                     {
+                         "id":  "trtturk",
+                         "ad":  "TRT Türk",
+                         "grup":  "Diğer",
+                         "maxKalite":  "1440p",
+                         "url":  "https://tv-trtturk.medya.trt.com.tr/master.m3u8",
+                         "referer":  "https://www.trtturk.com/"
+                     },
+                     {
+                         "id":  "trtkurdi",
+                         "ad":  "TRT Kurdî",
+                         "grup":  "Diğer",
+                         "maxKalite":  "1440p",
+                         "url":  "https://tv-trtkurdi.medya.trt.com.tr/master.m3u8",
+                         "referer":  "https://www.trtkurdi.net/"
+                     },
+                     {
+                         "id":  "trtgenc",
+                         "ad":  "TRT Genç",
+                         "grup":  "Diğer",
+                         "maxKalite":  "1440p",
+                         "url":  "https://tv-trtgenc.medya.trt.com.tr/master.m3u8",
+                         "referer":  "https://www.trtgenc.net.tr/"
+                     },
+                     {
+                         "id":  "trtarabi",
+                         "ad":  "TRT Arabi",
+                         "grup":  "Diğer",
+                         "maxKalite":  "1440p",
+                         "url":  "https://tv-trtarabi.medya.trt.com.tr/master.m3u8",
+                         "referer":  "https://www.trtarabi.com/"
+                     },
+                     {
+                         "id":  "diyanettv",
+                         "ad":  "Diyanet TV",
+                         "grup":  "Diğer",
+                         "maxKalite":  "1080p",
+                         "url":  "https://eustr73.mediatriple.net/videoonlylive/mtikoimxnztxlive/broadcast_5e3bf95a47e07.smil/playlist.m3u8",
+                         "referer":  "https://www.diyanet.tv/"
+                     },
+                     {
+                         "id":  "ebaortaokul",
+                         "ad":  "TRT EBA Ortaokul",
+                         "grup":  "Diğer",
+                         "maxKalite":  "720p",
+                         "url":  "https://tv-e-okul01.medya.trt.com.tr/master.m3u8",
+                         "referer":  "https://www.trtizle.com/"
+                     },
+                     {
+                         "id":  "4utv",
+                         "ad":  "4U TV",
+                         "grup":  "Ulusal",
+                         "url":  "https://hls.4utv.live/hls/stream.m3u8",
+                         "referer":  "https://4utv.tv/en/"
+                     },
+                     {
+                         "id":  "afroturktv",
+                         "ad":  "Afroturk TV",
+                         "grup":  "Ulusal",
+                         "maxKalite":  "1080p",
+                         "url":  "https://edge.socialsmart.tv/naturaltv/bant1/playlist.m3u8",
+                         "referer":  "https://afroturktv.com/"
+                     },
+                     {
+                         "id":  "aksutv",
+                         "ad":  "Aksu TV",
+                         "grup":  "Ulusal",
+                         "maxKalite":  "720p",
+                         "url":  "https://live.artidijitalmedya.com/artidijital_aksutv/aksutv/playlist.m3u8",
+                         "referer":  "https://www.aksutv.com.tr/"
+                     },
+                     {
+                         "id":  "alanyapostatv",
+                         "ad":  "Alanya Posta TV",
+                         "grup":  "Ulusal",
+                         "maxKalite":  "1080p",
+                         "url":  "https://api-tv3.yayin.com.tr/postatv/postatv/playlist.m3u8",
+                         "referer":  "https://www.alanyapostatv.com/"
+                     },
+                     {
+                         "id":  "almahriahtv",
+                         "ad":  "Almahriah TV",
+                         "grup":  "Haber",
+                         "url":  "https://starmenajo.com/hls/almahriah/index.m3u8",
+                         "referer":  "https://almahriah.net/"
+                     },
+                     {
+                         "id":  "altastv",
+                         "ad":  "Altas TV",
+                         "grup":  "Ulusal",
+                         "maxKalite":  "720p",
+                         "url":  "https://edge1.socialsmart.tv/altastv/bant1/playlist.m3u8",
+                         "referer":  "http://www.altastv.com.tr/"
+                     },
+                     {
+                         "id":  "alzahratvturkic",
+                         "ad":  "Al-Zahra TV Turkic",
+                         "grup":  "Dini",
+                         "maxKalite":  "720p",
+                         "url":  "https://live.al-zahratv.com/live/playlist.m3u8",
+                         "referer":  "https://alzahra.tv/"
+                     },
+                     {
+                         "id":  "anadolunettv",
+                         "ad":  "Anadolu Net TV",
+                         "grup":  "Ulusal",
+                         "maxKalite":  "1080p",
+                         "url":  "https://live.artidijitalmedya.com/artidijital_anadolunet/anadolunet/playlist.m3u8",
+                         "referer":  "https://www.anadolunettv.com/"
+                     },
+                     {
+                         "id":  "astv",
+                         "ad":  "AS TV",
+                         "grup":  "Haber",
+                         "maxKalite":  "1080p",
+                         "url":  "https://live.artidijitalmedya.com/artidijital_astv/astv/playlist.m3u8",
+                         "referer":  "https://astv.com.tr/"
+                     },
+                     {
+                         "id":  "atvalanya",
+                         "ad":  "ATV Alanya",
+                         "grup":  "Ulusal",
+                         "maxKalite":  "1080p",
+                         "url":  "https://cdn-alanyatv.yayin.com.tr/alanyatv/alanyatv/playlist.m3u8",
+                         "referer":  "https://www.alanyatelevizyonu.com.tr/iletisim"
+                     },
+                     {
+                         "id":  "benguturktv",
+                         "ad":  "Benguturk TV",
+                         "grup":  "Ulusal",
+                         "url":  "https://tv.ensonhaber.com/benguturk/benguturk.m3u8",
+                         "referer":  "https://www.benguturk.com/"
+                     },
+                     {
+                         "id":  "birtv",
+                         "ad":  "Bir TV",
+                         "grup":  "Diğer",
+                         "maxKalite":  "720p",
+                         "url":  "https://edge.taksimbilisim.com/birtv/bant1/playlist.m3u8",
+                         "referer":  "https://birtv.tv/"
+                     },
+                     {
+                         "id":  "bricvesatranctv",
+                         "ad":  "Bric ve Satranc TV",
+                         "grup":  "Diğer",
+                         "url":  "http://139.162.182.79/live/test/index.m3u8",
+                         "referer":  "http://www.itp.tv.tr/"
+                     },
+                     {
+                         "id":  "brtv",
+                         "ad":  "BRTV",
+                         "grup":  "Diğer",
+                         "maxKalite":  "720p",
+                         "url":  "https://live.artidijitalmedya.com/artidijital_brtv/brtv/playlist.m3u8",
+                         "referer":  "https://www.brtv.com.tr/"
+                     },
+                     {
+                         "id":  "caytv",
+                         "ad":  "Cay TV",
+                         "grup":  "Ulusal",
+                         "maxKalite":  "720p",
+                         "url":  "https://edge1.socialsmart.tv/caytv/bant1/playlist.m3u8",
+                         "referer":  "https://www.caytv.com.tr/"
+                     },
+                     {
+                         "id":  "ciftcitv",
+                         "ad":  "Ciftci TV",
+                         "grup":  "Diğer",
+                         "maxKalite":  "720p",
+                         "url":  "https://live.artidijitalmedya.com/artidijital_ciftcitv/ciftcitv/playlist.m3u8",
+                         "referer":  "https://www.ciftcitv.com/"
+                     },
+                     {
+                         "id":  "denizpostasitv",
+                         "ad":  "Deniz Postasi TV",
+                         "grup":  "Ulusal",
+                         "maxKalite":  "720p",
+                         "url":  "https://live.artidijitalmedya.com/artidijital_denizpostasi/denizpostasi/playlist.m3u8",
+                         "referer":  "https://www.denizpostasi.com/"
+                     },
+                     {
+                         "id":  "dha",
+                         "ad":  "DHA",
+                         "grup":  "Haber",
+                         "maxKalite":  "720p",
+                         "url":  "https://603c568fccdf5.streamlock.net/live/dhaweb1_C5efC/playlist.m3u8",
+                         "referer":  "https://www.dha.com.tr/"
+                     },
+                     {
+                         "id":  "diyartv",
+                         "ad":  "Diyar TV",
+                         "grup":  "Dini",
+                         "maxKalite":  "720p",
+                         "url":  "https://live.artidijitalmedya.com/artidijital_diyartv/diyartv/playlist.m3u8",
+                         "referer":  "https://www.diyartv.com.tr/"
+                     },
+                     {
+                         "id":  "dosttv",
+                         "ad":  "Dost TV",
+                         "grup":  "Dini",
+                         "url":  "https://dost.stream.emsal.im/tv/live.m3u8",
+                         "referer":  "https://www.dosttv.com/"
+                     },
+                     {
+                         "id":  "edessatv",
+                         "ad":  "Edessa TV",
+                         "grup":  "Ulusal",
+                         "maxKalite":  "1080p",
+                         "url":  "https://canli.edessatv.com/hls/stream.m3u8",
+                         "referer":  "http://www.edessatv.com/"
+                     },
+                     {
+                         "id":  "elsharqtv",
+                         "ad":  "Elsharq TV",
+                         "grup":  "Ulusal",
+                         "maxKalite":  "720p",
+                         "url":  "https://mn-nl.mncdn.com/elsharq_live/live/playlist.m3u8",
+                         "referer":  "http://elsharq.tv/"
+                     },
+                     {
+                         "id":  "ertv",
+                         "ad":  "ERTV",
+                         "grup":  "Ulusal",
+                         "maxKalite":  "1080p",
+                         "url":  "https://live.artidijitalmedya.com/artidijital_ertv_new/ertv/playlist.m3u8",
+                         "referer":  "http://www.ertv.com.tr/"
+                     },
+                     {
+                         "id":  "erzurumwebtv",
+                         "ad":  "Erzurum Web TV",
+                         "grup":  "Ulusal",
+                         "maxKalite":  "720p",
+                         "url":  "https://win29.yayin.com.tr/erzurumwebtv/erzurumwebtv/iptvdelisi.m3u8",
+                         "referer":  "https://erzurumwebtv.com/"
+                     },
+                     {
+                         "id":  "estv",
+                         "ad":  "ES TV",
+                         "grup":  "Diğer",
+                         "maxKalite":  "720p",
+                         "url":  "https://live.artidijitalmedya.com/artidijital_estv/estv/playlist.m3u8",
+                         "referer":  "http://www.estv.com.tr/"
+                     },
+                     {
+                         "id":  "etvkayseri",
+                         "ad":  "ETV Kayseri",
+                         "grup":  "Ulusal",
+                         "maxKalite":  "720p",
+                         "url":  "https://live.artidijitalmedya.com/artidijital_etv/etv/playlist.m3u8",
+                         "referer":  "https://www.etvkayseri.com/"
+                     },
+                     {
+                         "id":  "etvmanisa",
+                         "ad":  "ETV Manisa",
+                         "grup":  "Diğer",
+                         "maxKalite":  "1080p",
+                         "url":  "https://edge1.socialsmart.tv/manisaetv/bant1/playlist.m3u8",
+                         "referer":  "https://www.etvmanisa.com/"
+                     },
+                     {
+                         "id":  "flashhabertv",
+                         "ad":  "Flash Haber TV",
+                         "grup":  "Haber",
+                         "maxKalite":  "1080p",
+                         "url":  "https://b01c02nl.mediatriple.net/videoonlylive/mtyycglqauzjhlive/broadcast_67c053c48829f.smil/playlist.m3u8",
+                         "referer":  "https://flashhabertv.com/canli-yayin.html"
+                     },
+                     {
+                         "id":  "fortunatv",
+                         "ad":  "Fortuna TV",
+                         "grup":  "Diğer",
+                         "maxKalite":  "1080p",
+                         "url":  "https://edge1.socialsmart.tv/ftvturk/bant1/playlist.m3u8",
+                         "referer":  "http://www.fortunatv.com/"
+                     },
+                     {
+                         "id":  "kanalavrupa",
+                         "ad":  "Kanal Avrupa",
+                         "grup":  "Diğer",
+                         "maxKalite":  "1080p",
+                         "url":  "https://api-tv27.yayin.com.tr/kanalavrupa/index.m3u8",
+                         "referer":  "https://www.kanalavrupa.tv/"
+                     },
+                     {
+                         "id":  "gempixel",
+                         "ad":  "GEM Pixel",
+                         "grup":  "Ulusal",
+                         "url":  "https://glserver1.tamashaland.com/live/aBCH96886YznRbGOiqTnnQ__/stream_0.m3u8",
+                         "referer":  "https://www.gemgroup.tv/"
+                     },
+                     {
+                         "id":  "grandcinema",
+                         "ad":  "Grand Cinema",
+                         "grup":  "Ulusal",
+                         "url":  "https://gcinemahls.wns.live/hls/stream.m3u8",
+                         "referer":  "https://grandcinema.wns.live/"
+                     },
+                     {
+                         "id":  "guneydogutv",
+                         "ad":  "Guneydogu TV",
+                         "grup":  "Haber",
+                         "maxKalite":  "720p",
+                         "url":  "https://edge1.socialsmart.tv/gtv/bant1/playlist.m3u8",
+                         "referer":  "http://www.guneydogutv.com/"
+                     },
+                     {
+                         "id":  "haber61tv",
+                         "ad":  "Haber61 TV",
+                         "grup":  "Haber",
+                         "maxKalite":  "720p",
+                         "url":  "https://win8.yayin.com.tr/haber61tv/smil:haber61tv.smil/playlist.m3u8"
+                     },
+                     {
+                         "id":  "haberglobal",
+                         "ad":  "Haber Global",
+                         "grup":  "Haber",
+                         "url":  "https://tv.ensonhaber.com/haberglobal/haberglobal.m3u8",
+                         "referer":  "https://www.haberglobal.com.tr/"
+                     },
+                     {
+                         "id":  "htsportv",
+                         "ad":  "HTSpor TV",
+                         "grup":  "Spor",
+                         "maxKalite":  "1080p",
+                         "url":  "https://ciner.daioncdn.net/ht-spor/ht-spor.m3u8?app=web",
+                         "referer":  "https://www.htspor.com/canli-yayin"
+                     },
+                     {
+                         "id":  "hunattv",
+                         "ad":  "Hunat TV",
+                         "grup":  "Ulusal",
+                         "maxKalite":  "720p",
+                         "url":  "https://live.artidijitalmedya.com/artidijital_hunattv/hunattv/playlist.m3u8",
+                         "referer":  "https://hunattv.com/"
+                     },
+                     {
+                         "id":  "celtv",
+                         "ad":  "Icel TV",
+                         "grup":  "Diğer",
+                         "maxKalite":  "1080p",
+                         "url":  "https://edge1.socialsmart.tv/iceltv/bant1/playlist.m3u8"
+                     },
+                     {
+                         "id":  "lketv",
+                         "ad":  "Ilke TV",
+                         "grup":  "Diğer",
+                         "url":  "https://stream.ilketv.com.tr/hls/ilkecanli.m3u8",
+                         "referer":  "https://www.ilketv.com.tr"
+                     },
+                     {
+                         "id":  "kanal3",
+                         "ad":  "Kanal 3",
+                         "grup":  "Ulusal",
+                         "maxKalite":  "1080p",
+                         "url":  "https://live.artidijitalmedya.com/artidijital_kanal3/kanal3/playlist.m3u8",
+                         "referer":  "http://kanal3.com.tr/"
+                     },
+                     {
+                         "id":  "kanal7avrupa",
+                         "ad":  "Kanal 7 Avrupa",
+                         "grup":  "Ulusal",
+                         "maxKalite":  "1080p",
+                         "url":  "https://livetv.radyotvonline.net/kanal7live/kanal7avr/playlist.m3u8",
+                         "referer":  "https://www.kanal7avrupa.com/"
+                     },
+                     {
+                         "id":  "kanal12",
+                         "ad":  "Kanal 12",
+                         "grup":  "Ulusal",
+                         "maxKalite":  "720p",
+                         "url":  "https://live.artidijitalmedya.com/artidijital_kanal12/kanal12/playlist.m3u8",
+                         "referer":  "https://www.kanal12.net/"
+                     },
+                     {
+                         "id":  "kanal15",
+                         "ad":  "Kanal 15",
+                         "grup":  "Ulusal",
+                         "maxKalite":  "720p",
+                         "url":  "https://live.artidijitalmedya.com/artidijital_kanal15/kanal15/playlist.m3u8",
+                         "referer":  "https://www.kanal15.com.tr/"
+                     },
+                     {
+                         "id":  "kanal23",
+                         "ad":  "Kanal 23",
+                         "grup":  "Ulusal",
+                         "maxKalite":  "1080p",
+                         "url":  "https://cdn-kanal23.yayin.com.tr/kanal23/index.m3u8",
+                         "referer":  "https://www.kanal23.com/"
+                     },
+                     {
+                         "id":  "kanal26",
+                         "ad":  "Kanal 26",
+                         "grup":  "Ulusal",
+                         "maxKalite":  "720p",
+                         "url":  "https://live.artidijitalmedya.com/artidijital_kanal26/kanal26/playlist.m3u8",
+                         "referer":  "http://www.kanal26.tv/"
+                     },
+                     {
+                         "id":  "kanal32",
+                         "ad":  "Kanal 32",
+                         "grup":  "Ulusal",
+                         "maxKalite":  "720p",
+                         "url":  "https://edge1.socialsmart.tv/kanal32/bant1/playlist.m3u8",
+                         "referer":  "http://www.kanal32.com.tr/"
+                     },
+                     {
+                         "id":  "kanal58",
+                         "ad":  "Kanal 58",
+                         "grup":  "Ulusal",
+                         "maxKalite":  "720p",
+                         "url":  "https://live.artidijitalmedya.com/artidijital_kanal58/kanal58/playlist.m3u8",
+                         "referer":  "https://kanal58.com.tr/"
+                     },
+                     {
+                         "id":  "kanalddrama",
+                         "ad":  "Kanal D Drama",
+                         "grup":  "Ulusal",
+                         "maxKalite":  "1080p",
+                         "url":  "http://bantel-cdn1.iptvperu.tv:1935/btnscrtn/KanalD_principal_SRT/playlist.m3u8",
+                         "referer":  "https://kanalddrama.com/"
+                     },
+                     {
+                         "id":  "kanalfirat",
+                         "ad":  "Kanal Firat",
+                         "grup":  "Ulusal",
+                         "maxKalite":  "720p",
+                         "url":  "https://live.artidijitalmedya.com/artidijital_kanalfirat/kanalfirat/playlist.m3u8",
+                         "referer":  "https://kanalfirat.com.tr/"
+                     },
+                     {
+                         "id":  "kanalv",
+                         "ad":  "Kanal V",
+                         "grup":  "Ulusal",
+                         "maxKalite":  "720p",
+                         "url":  "https://live.artidijitalmedya.com/artidijital_kanalv/kanalv/playlist.m3u8",
+                         "referer":  "https://www.kanalv.com.tr/"
+                     },
+                     {
+                         "id":  "kaytv",
+                         "ad":  "Kay TV",
+                         "grup":  "Ulusal",
+                         "maxKalite":  "720p",
+                         "url":  "https://live.artidijitalmedya.com/artidijital_kaytv/kaytv/playlist.m3u8",
+                         "referer":  "https://www.kaytv.com.tr/"
+                     },
+                     {
+                         "id":  "kentturk",
+                         "ad":  "Kent Turk",
+                         "grup":  "Ulusal",
+                         "maxKalite":  "1080p",
+                         "url":  "https://live.artidijitalmedya.com/artidijital_kentturktv/kentturktv/playlist.m3u8",
+                         "referer":  "https://www.kentturktv.com/"
+                     },
+                     {
+                         "id":  "kocaelitv",
+                         "ad":  "Kocaeli TV",
+                         "grup":  "Ulusal",
+                         "maxKalite":  "1080p",
+                         "url":  "https://edge.taksimbilisim.com/kocaelitv/bant1/playlist.m3u8",
+                         "referer":  "https://www.kocaelitv.com.tr/"
+                     },
+                     {
+                         "id":  "konyaolaytv",
+                         "ad":  "Konya Olay TV",
+                         "grup":  "Ulusal",
+                         "maxKalite":  "720p",
+                         "url":  "https://live.artidijitalmedya.com/artidijital_konyaolaytv/konyaolaytv/playlist.m3u8",
+                         "referer":  "https://www.konyaolaytv.com/"
+                     },
+                     {
+                         "id":  "lalegultv",
+                         "ad":  "Lalegul TV",
+                         "grup":  "Dini",
+                         "url":  "https://lbl.netmedya.net/hls/lalegultv.m3u8",
+                         "referer":  "https://lalegultv.com.tr/"
+                     },
+                     {
+                         "id":  "lifetv",
+                         "ad":  "Life TV",
+                         "grup":  "Haber",
+                         "maxKalite":  "1080p",
+                         "url":  "https://live.artidijitalmedya.com/artidijital_lifetv/lifetv/playlist.m3u8",
+                         "referer":  "http://lifetv.com.tr/"
+                     },
+                     {
+                         "id":  "linetv",
+                         "ad":  "Line TV",
+                         "grup":  "Ulusal",
+                         "maxKalite":  "720p",
+                         "url":  "https://edge1.socialsmart.tv/linetv/bant1/playlist.m3u8",
+                         "referer":  "https://linehaber.com.tr/"
+                     },
+                     {
+                         "id":  "luystv",
+                         "ad":  "Luys TV",
+                         "grup":  "Diğer",
+                         "maxKalite":  "1080p",
+                         "url":  "https://b01c02nl.mediatriple.net/videoonlylive/mtpayqrfkgirxelive/broadcast_5e91c5ac96898.smil/playlist.m3u8",
+                         "referer":  "http://luys.tv/"
+                     },
+                     {
+                         "id":  "mavikaradeniztv",
+                         "ad":  "MaviKaradeniz TV",
+                         "grup":  "Ulusal",
+                         "maxKalite":  "720p",
+                         "url":  "https://live.artidijitalmedya.com/artidijital_mavikaradeniz/mavikaradeniz/playlist.m3u8",
+                         "referer":  "http://www.mavikaradeniztv.com.tr/"
+                     },
+                     {
+                         "id":  "mekameleentv",
+                         "ad":  "Mekameleen TV",
+                         "grup":  "Haber",
+                         "maxKalite":  "1080p",
+                         "url":  "https://mn-nl.mncdn.com/mekameleen/smil:mekameleentv.smil/playlist.m3u8",
+                         "referer":  "https://www.mekameleen.tv/"
+                     },
+                     {
+                         "id":  "mercantv",
+                         "ad":  "Mercan TV",
+                         "grup":  "Diğer",
+                         "maxKalite":  "576p",
+                         "url":  "https://live.artidijitalmedya.com/artidijital_mercantv/mercantv/playlist.m3u8",
+                         "referer":  "http://www.mercan.tv/"
+                     },
+                     {
+                         "id":  "naturaltv",
+                         "ad":  "Natural TV",
+                         "grup":  "Diğer",
+                         "maxKalite":  "1080p",
+                         "url":  "https://edge1.socialsmart.tv/naturaltv/bant1/playlist.m3u8"
+                     },
+                     {
+                         "id":  "powerdance",
+                         "ad":  "Power Dance",
+                         "grup":  "Müzik",
+                         "maxKalite":  "1080p",
+                         "url":  "https://livetv.powerapp.com.tr/dance/dance.smil/playlist.m3u8",
+                         "referer":  "https://www.powerapp.com.tr/radios/powerdance/"
+                     },
+                     {
+                         "id":  "powerlove",
+                         "ad":  "Power Love",
+                         "grup":  "Müzik",
+                         "maxKalite":  "1080p",
+                         "url":  "https://livetv.powerapp.com.tr/plove/love.smil/playlist.m3u8",
+                         "referer":  "https://www.powerapp.com.tr/radios/powerlove/"
+                     },
+                     {
+                         "id":  "powerturkakustik",
+                         "ad":  "PowerTurk Akustik",
+                         "grup":  "Müzik",
+                         "maxKalite":  "1080p",
+                         "url":  "https://livetv.powerapp.com.tr/pturkakustik/akustik.smil/playlist.m3u8",
+                         "referer":  "https://www.powerapp.com.tr/radios/powerturkakustik/"
+                     },
+                     {
+                         "id":  "powerturkslow",
+                         "ad":  "PowerTurk Slow",
+                         "grup":  "Müzik",
+                         "maxKalite":  "1080p",
+                         "url":  "https://livetv.powerapp.com.tr/pturkslow/slow.smil/playlist.m3u8",
+                         "referer":  "https://www.powerapp.com.tr/radios/powerturkslow/"
+                     },
+                     {
+                         "id":  "powerturktaptaze",
+                         "ad":  "PowerTurk Taptaze",
+                         "grup":  "Müzik",
+                         "maxKalite":  "1080p",
+                         "url":  "https://livetv.powerapp.com.tr/pturktaptaze/taptaze.smil/playlist.m3u8",
+                         "referer":  "https://www.powerapp.com.tr/radios/powerturktaptaze/"
+                     },
+                     {
+                         "id":  "semerkandtv",
+                         "ad":  "Semerkand TV",
+                         "grup":  "Diğer",
+                         "maxKalite":  "1080p",
+                         "url":  "https://b01c02nl.mediatriple.net/videoonlylive/mtisvwurbfcyslive/broadcast_58d915bd40efc.smil/playlist.m3u8",
+                         "referer":  "http://www.semerkandtv.com.tr/"
+                     },
+                     {
+                         "id":  "sercemtv",
+                         "ad":  "Sercem TV",
+                         "grup":  "Dini",
+                         "url":  "https://canli.sercemtv.com.tr/hls/0/stream.m3u8",
+                         "referer":  "https://sercemtv.com.tr"
+                     },
+                     {
+                         "id":  "sunrtv",
+                         "ad":  "Sun RTV",
+                         "grup":  "Diğer",
+                         "maxKalite":  "720p",
+                         "url":  "https://live.artidijitalmedya.com/artidijital_sunrtv/sunrtv/playlist.m3u8",
+                         "referer":  "http://www.sunrtv.com.tr/"
+                     },
+                     {
+                         "id":  "tempotv",
+                         "ad":  "Tempo TV",
+                         "grup":  "Diğer",
+                         "maxKalite":  "720p",
+                         "url":  "https://live.artidijitalmedya.com/artidijital_tempotv/tempotv/playlist.m3u8",
+                         "referer":  "http://www.tempo-tv.com/"
+                     },
+                     {
+                         "id":  "tivi6",
+                         "ad":  "Tivi 6",
+                         "grup":  "Ulusal",
+                         "maxKalite":  "720p",
+                         "url":  "https://live.artidijitalmedya.com/artidijital_tivi6/tivi6/playlist.m3u8",
+                         "referer":  "https://tivi6.com.tr/"
+                     },
+                     {
+                         "id":  "tjktv2",
+                         "ad":  "TJK TV 2",
+                         "grup":  "Spor",
+                         "maxKalite":  "1080p",
+                         "url":  "https://tjktv-live.tjk.org/tjktv2/tjktv2.m3u8",
+                         "referer":  "https://www.tjk.org/"
+                     },
+                     {
+                         "id":  "tontv",
+                         "ad":  "Ton TV",
+                         "grup":  "Diğer",
+                         "maxKalite":  "1080p",
+                         "url":  "https://live.artidijitalmedya.com/artidijital_tontv/tontv/playlist.m3u8",
+                         "referer":  "https://www.tontv.com.tr/"
+                     },
+                     {
+                         "id":  "turkhabertv",
+                         "ad":  "TurkHaber TV",
+                         "grup":  "Haber",
+                         "maxKalite":  "1080p",
+                         "url":  "https://edge1.socialsmart.tv/turkhaber/bant1/playlist.m3u8",
+                         "referer":  "https://www.turkhabertv.com/"
+                     },
+                     {
+                         "id":  "tv1",
+                         "ad":  "TV 1",
+                         "grup":  "Diğer",
+                         "maxKalite":  "720p",
+                         "url":  "https://edge1.socialsmart.tv/tv1/bant1/playlist.m3u8",
+                         "referer":  "http://www.tvbir.com.tr/"
+                     },
+                     {
+                         "id":  "tv41",
+                         "ad":  "TV 41",
+                         "grup":  "Diğer",
+                         "maxKalite":  "720p",
+                         "url":  "https://live.artidijitalmedya.com/artidijital_tv41/tv41/playlist.m3u8",
+                         "referer":  "http://tv41.com.tr/"
+                     },
+                     {
+                         "id":  "tv52",
+                         "ad":  "TV 52",
+                         "grup":  "Diğer",
+                         "maxKalite":  "720p",
+                         "url":  "https://edge1.socialsmart.tv/tv52/bant1/playlist.m3u8",
+                         "referer":  "http://www.tv52.com.tr/"
+                     },
+                     {
+                         "id":  "tv264",
+                         "ad":  "TV 264",
+                         "grup":  "Diğer",
+                         "maxKalite":  "1080p",
+                         "url":  "https://b01c02nl.mediatriple.net/videoonlylive/mtdxkkitgbrckilive/broadcast_5ee244263fd6d.smil/playlist.m3u8",
+                         "referer":  "https://tv264.com.tr/"
+                     },
+                     {
+                         "id":  "tvden",
+                         "ad":  "TV Den",
+                         "grup":  "Diğer",
+                         "url":  "http://canli.tvden.com.tr/hls/live.m3u8",
+                         "referer":  "https://tvden.com.tr/"
+                     },
+                     {
+                         "id":  "urfanatiktv",
+                         "ad":  "Urfa Natik TV",
+                         "grup":  "Diğer",
+                         "maxKalite":  "1080p",
+                         "url":  "https://live.artidijitalmedya.com/artidijital_urfanatiktv/urfanatiktv/playlist.m3u8",
+                         "referer":  "https://urfanatiktv.com/"
+                     },
+                     {
+                         "id":  "van65tv",
+                         "ad":  "Van 65 TV",
+                         "grup":  "Ulusal",
+                         "maxKalite":  "720p",
+                         "url":  "https://live.artidijitalmedya.com/artidijital_van65/van65/playlist.m3u8",
+                         "referer":  "https://van65tv.com/live.php"
+                     },
+                     {
+                         "id":  "vavtv",
+                         "ad":  "Vav TV",
+                         "grup":  "Diğer",
+                         "maxKalite":  "1080p",
+                         "url":  "https://playlist.fasttvcdn.com/pl/rfrk9821hdy9dayo8wfyha/kltr-sanat-tv/playlist.m3u8",
+                         "referer":  "https://www.vavtv.com.tr/"
+                     },
+                     {
+                         "id":  "zaroktv",
+                         "ad":  "Zarok TV",
+                         "grup":  "Diğer",
+                         "maxKalite":  "720p",
+                         "url":  "https://zindikurmanci.zaroktv.com.tr/hls/stream.m3u8",
+                         "referer":  "https://zaroktv.com.tr/"
+                     },
+                     {
+                         "id":  "tv42",
+                         "ad":  "TV 4",
+                         "grup":  "Ulusal",
+                         "url":  "https://turkmedya-live.ercdn.net/tv4/tv4_720p.m3u8"
+                     },
+                     {
+                         "id":  "tjktvyurtds",
+                         "ad":  "TJK TV YURT DISI",
+                         "grup":  "Spor",
+                         "url":  "https://tjktv-live.tjk.org/tjktv2/tjktv2_1080p.m3u8"
+                     },
+                     {
+                         "id":  "kanalhayat1080p",
+                         "ad":  "Kanal Hayat",
+                         "grup":  "Ulusal",
+                         "maxKalite":  "1080p",
+                         "url":  "https://tbn02a.ltnschedule.com/hls/nx21i.m3u8"
+                     },
+                     {
+                         "id":  "knmusictv",
+                         "ad":  "KN Music TV",
+                         "grup":  "Müzik",
+                         "url":  "https://cdn4.yayin.com.tr/kntv/tracks-v1a1/mono.m3u8"
+                     },
+                     {
+                         "id":  "olayturktvkayseri720pgeoblocked",
+                         "ad":  "Olay Türk TV Kayseri",
+                         "grup":  "Haber",
+                         "maxKalite":  "1080p",
+                         "url":  "https://live.artidijitalmedya.com/artidijital_olayturk/olayturk/playlist.m3u8"
+                     },
+                     {
+                         "id":  "persianaturkiye",
+                         "ad":  "Persiana Turkiye",
+                         "grup":  "Diğer",
+                         "url":  "https://turkhls.persiana.live/hls/stream.m3u8"
+                     },
+                     {
+                         "id":  "sat7turk1080p",
+                         "ad":  "Sat7 Türk",
+                         "grup":  "Diğer",
+                         "maxKalite":  "720p",
+                         "url":  "https://live.artidijitalmedya.com/artidijital_sat7turk/sat7turk/playlist.m3u8"
+                     },
+                     {
+                         "id":  "yoltv",
+                         "ad":  "YOL TV",
+                         "grup":  "Ulusal",
+                         "maxKalite":  "720p",
+                         "url":  "https://live.yoltv.com/hls/stream.m3u8"
+                     },
+                     {
+                         "id":  "ekoltv",
+                         "ad":  "Ekol TV",
+                         "grup":  "Haber",
+                         "url":  "https://ekoltv-live.ercdn.net/ekoltv/ekoltv.m3u8",
+                         "referer":  "https://www.ekoltv.com.tr/"
+                     }
+                 ],
+    "bulunamayanlar":  [
+                     {
+                         "ad":  "Kanal B",
+                         "sebep":  "13 Eylul 2026: tv.kanalb.tr baglanti kabul etmiyor. Sitedeki ikinci kaynak baskentaudiovideo.xyz 200 DONUYOR AMA satilik park sayfasi HTML\u0027i - m3u8 degil. Icerik dogrulanmadan 200 koduna guvenilmemesinin ornegi."
+                     },
+                     {
+                         "ad":  "MTurk TV",
+                         "sebep":  "13 Eylul 2026: edge1.socialsmart.tv/muglaturk 404; mturktv.com sunucusu 444 (nginx baglantiyi dusuruyor)."
+                     },
+                     {
+                         "ad":  "Med Muzik",
+                         "sebep":  "13 Eylul 2026: 54.36.110.140 baglanti kabul etmiyor, medmuzik.com DNS\u0027te yok. Yayinci kapanmis gorunuyor."
+                     },
+                     {
+                         "ad":  "TELE1",
+                         "sebep":  "13 Eylul 2026: tele1-live.ercdn.net artik 404. Yayinci canli yayini YouTube\u0027a tasimis (tele1.com.tr/canli-yayin sayfasinda youtube embed var, sayfada m3u8 yok). YouTube yolu kanal bazli iOS User-Agent gerektiriyor - bkz. Sozcu TV maddesi."
+                     },
+                           {
+                               "ad":  "Beyaz TV",
+                               "sebep":  "13 Eylul 2026 - ADRES BULUNDU, YAYIN DONMUS. Calisan adres: https://beyaztv-live.daioncdn.net/beyaztv/beyaztv.m3u8?app=web\u0026ce=3 (referer https://www.beyaztv.com.tr/). 200 doner ve 1080p/720p/480p/360p verir; segmentler de iner. AMA yayin donmus: butun varyantlarin Last-Modified degeri ayni ani gosteriyor ve 40 dakika ilerlemedi, yani kaynak tarafi durmus (edge onbellegi degil). ONEMLI: ayni konak PARAMETRESIZ istenirse 401 doner - eski kayitta bu yuzden olu sanilmisti; fark ?app=web\u0026ce=3 . Yayincinin kendi sayfasindaki beyaztv.daioncdn.net (tire yerine nokta) konagi ise her turlu 401 veriyor. Yapilacak: ara ara bu adresi tekrar dene, yayin donmusluktan cikarsa kanal dogrudan eklenebilir."
+                           },
+                           {
+                               "ad":  "TRT EBA Ilkokul",
+                               "sebep":  "Segment adlari master_720_backup_20220412T... - Nisan 2022\u0027den kalma olu playlist. Cikarildi."
+                           },
+                           {
+                               "ad":  "TRT EBA Lise",
+                               "sebep":  "Ayni sekilde backup segmentleri, 404. Cikarildi. (EBA Ortaokul canli, listede kaldi.)"
+                           }
+                       ]
+}
