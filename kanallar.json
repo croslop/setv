@@ -1,5 +1,5 @@
 {
-    "surum":  6,
+    "surum":  8,
     "guncelleme":  "2026-09-15",
     "not":  "Sadece yayincinin kendi resmi CDN\u0027inden gelen ucretsiz yayinlar. DRM\u0027li veya korsan kaynak yok.",
     "dogrulama":  "13 Eylul 2026: 148 kanalin tamami tarandi (master + en yuksek varyant playlist gecikmesi x3). 144 kanal calisiyor, 140\u0027inin en kotu playlist suresi 500 ms altinda. Olu 4 kanal cikarildi. 7 kanal tokenli: 6 Turkuvaz kanali securevideotoken.tmgrup.com.tr uzerinden, NOW TV kendi sayfasindan imzali adres aliyor - bunlar ISP\u0027ye ozel turknet.ercdn.net dugumunden alindi, o dugum yuksek varyantlarin playlist\u0027ini 4-16 sn geciktiriyordu. 10 Eylul: her kanal icin master -\u003e en dusuk varyant -\u003e son segment gercekten indirildi.",
