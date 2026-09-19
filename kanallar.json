@@ -1,6 +1,6 @@
 {
-    "surum":  9,
-    "guncelleme":  "2026-09-15",
+    "surum":  10,
+    "guncelleme":  "2026-09-19",
     "not":  "Sadece yayincinin kendi resmi CDN\u0027inden gelen ucretsiz yayinlar. DRM\u0027li veya korsan kaynak yok.",
     "dogrulama":  "13 Eylul 2026: 148 kanalin tamami tarandi (master + en yuksek varyant playlist gecikmesi x3). 144 kanal calisiyor, 140\u0027inin en kotu playlist suresi 500 ms altinda. Olu 4 kanal cikarildi. 7 kanal tokenli: 6 Turkuvaz kanali securevideotoken.tmgrup.com.tr uzerinden, NOW TV kendi sayfasindan imzali adres aliyor - bunlar ISP\u0027ye ozel turknet.ercdn.net dugumunden alindi, o dugum yuksek varyantlarin playlist\u0027ini 4-16 sn geciktiriyordu. 10 Eylul: her kanal icin master -\u003e en dusuk varyant -\u003e son segment gercekten indirildi.",
     "alanlar":  "maxKalite: kanalin sundugu en yuksek cozunurluk. minKalite: varsa, bu kanalda bunun altindaki varyantlar bozuk - oynatici alt siniri buraya cekmeli. tokenli: adres kisa omurlu token tasir, oynatma aninda tokenSayfa\u0027dan tazelenmeli.",
@@ -262,6 +262,16 @@
                          "not":  "13 Eylul 2026: UCUNCU SAHIS kaynagi (kullanici \u0027kurallari esnet\u0027 dedi). iptv-org issue #41007\u0027de onerilen Flussonic sunucusu, http. Dogrulandi: 720p 2 Mbps, tur+eng ses, MEDIA-SEQUENCE 20 sn\u0027de 3 ilerledi, segment adindaki tarih o ani gosteriyordu; ffmpeg ile alinan karede CNN Turk logosu ve saat dogru. Yayincinin kendi live.duhnet.tv adresi disaridan 403. KIRILGAN: sahibi belirsiz bir IP."
                      },
                      {
+                         "id":  "tv100",
+                         "youtube":  "4WSvLRk83-c",
+                         "ad":  "TV100",
+                         "grup":  "Haber",
+                         "maxKalite":  "1080p",
+                         "url":  "",
+                         "referer":  "",
+                         "not":  "19 Eylul 2026: yayinci canli yayini SADECE YouTube'da veriyor (tv100.com/canli-yayin sayfasindaki embed 4WSvLRk83-c; oEmbed sahibi TV100 @tv100). HLS yedegi YOK: iptv-org'daki streamhostingcdn.top adresi playlist veriyor ama segmentler 403; ecanlitvizle'de sayfasi yok. url bos = yedeksiz: uygulama 1.4+ YouTube'u dogrudan ekranda acar."
+                     },
+                     {
                          "id":  "sozcutv",
                          "youtube":  "ztmY_cCtUl0",
                          "ad":  "S\u00f6zc\u00fc TV",
@@ -353,9 +363,22 @@
                          "ad":  "Cartoon Network",
                          "grup":  "\u00c7ocuk",
                          "maxKalite":  "1080p",
-                         "url":  "https://yayin2.canlitv.fun/live/cartoon-network.stream/playlist.m3u8?hash=8f20b24a4fa81fed7bdf03c1f23242cb",
-                         "referer":  "https://www.canlitv.diy/",
+                         "url":  "https://yayin2.canlitv.fun/live/cartoon-network.stream/playlist.m3u8?hash=dd0a0684ea3698a32b4371e453dc60bb",
+                         "referer":  "https://www.canlitv.you/cartoon-network",
+                         "tokenli":  true,
+                         "tokenSayfa":  "https://www.canlitv.you/player/index.php?id=11233",
+                         "tokenDesen":  "https://[a-z0-9]+\\.canlitv\\.fun/live/cartoon-network\\.stream/playlist\\.m3u8\\?hash=[0-9a-f]+",
+                         "not2":  "19 Eylul 2026: hash artik SABIT DEGIL (eskisi 403 verdi) ve site canlitv.diy -> canlitv.you tasindi. Tokenli yapildi: oynatici sayfasi kanal sayfasi Referer'i ile istenirse taze hash veriyor, Referer'siz bos doner.",
                          "not":  "13 Eylul 2026 - UCUNCU SAHIS CEVIRIMI (kullanici karari, bkz. CLAUDE.md kural 1 istisnasi). CN Turkiye uydudan sifresiz yayinlaniyor ama yayincinin internet akisi YOK: cartoonnetwork.com.tr artik WBD kurumsal sayfasi, iptv-org\u0027da CartoonNetwork.tr kanalinin tek akisi yok. Bu adres canlitv.com\u0027un kendi cevirim sunucusu; adresi oynatici sayfasindan cikti (canlitv.diy/player/index.php?id=11233). hash SABIT, gomulu adres yeterli. Dogrulandi: tek varyant 1080p 1,1 Mbps, MEDIA-SEQUENCE 30 sn\u0027de 3 ilerledi, son segment 1339 KB indi, Referer bile gerekmiyor. KIRILGAN: ucuncu sahis kaynagi, olebilir; olurse canlitv.diy/cartoon-network sayfasindaki oynatici adresine tekrar bak."
+                     },
+                     {
+                         "id":  "spacetoon",
+                         "ad":  "Spacetoon",
+                         "grup":  "Çocuk",
+                         "maxKalite":  "720p",
+                         "url":  "https://live-tr-next.spacetoongo.com/ST_TR_NEXT/hls/h7qefeiwfbjn1.m3u8",
+                         "referer":  "https://spacetoon.com.tr/",
+                         "not":  "19 Eylul 2026: kullanici istedi. Yayincinin RESMI Turkiye akisi: spacetoon.com.tr/tr/ ana sayfasindaki Video_js_Live_Player modulunde (framerusercontent .mjs). DIKKAT: iptv-org'daki ST_MENA_NEXT Arapca yayin, o degil. Dogrulandi: 720p + AAC, varyant playlist 281 ms, MEDIA-SEQUENCE 25 sn'de 7 ilerledi, son segment Last-Modified o an, karede Spacetoon logosu (Beyblade X)."
                      },
                      {
                          "id":  "trtbelgesel",
